@@ -16,11 +16,13 @@ p {
     text-align: center;
 }
 
+/* position of restart button */
 .restart {
     display: flex;
     justify-content: center;
 }
 
+/* Style of restart button */
 .restart button {
     padding: 10px;
     font-size: 20;
@@ -29,7 +31,7 @@ p {
     font-weight: bold;
 
 }
-
+/* Area where all the memory cards will be positioned */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(6, 100px);
@@ -37,11 +39,35 @@ p {
     justify-content: center;
 }
 
+/* Back of the card - before it's clicked */
 .memory-card {
     height: 100px;
     width: 70px;
     border-radius: 10px;
     position: relative;
     background-color: white;
+}
 
+/* Image on the card */ 
+.front-image {
+    height: 50px;
+    width: 50px;
+}
+
+/* transition of the cards */
+.card.flipped {
+    transform: rotateY('180')
+} 
+
+.front, .back {
+    backface-visibility: hidden;
+    border-radius: 15px;
+    position: absolute;
+}
+
+.card .front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY('180');
 }
