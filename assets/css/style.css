@@ -1,3 +1,21 @@
 body {
-    background: lightskyblue;
+    min-width: 100vw;
+    min-height: 100vh ;
+    background-color: darkviolet;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Sigmar", serif;;
+}
+
+p {
+    text-align: center;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
 }
