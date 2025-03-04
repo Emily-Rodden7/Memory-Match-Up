@@ -89,3 +89,15 @@ restartButton.addEventListener("click", () => {
     cardGenerator();
 });
 
+// Score count function
+
+let scoreContainer = document.getElementById("moves");
+
+let moves = 0;
+scoreContainer.innerHTML = 0;
+console.log(scoreContainer);
+
+function addMove() {
+    moves++;
+    scoreContainer.innerHTML = moves;
+}
