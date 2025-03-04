@@ -71,3 +71,10 @@ p {
     align-items: center;
     transform: rotateY('180');
 }
+
+.card .back {
+    background-image: ;
+    background-position: center;
+    background-size: cover;
+    backface-visibility: hidden;
+}
