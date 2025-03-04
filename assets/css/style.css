@@ -73,7 +73,7 @@ p {
 }
 
 .card .back {
-    background-image: ;
+    background-image: image();
     background-position: center;
     background-size: cover;
     backface-visibility: hidden;
