@@ -1,86 +1,29 @@
-const gridContainer = document(".grid-container");
-let cards = [];
-let firstCard, secondCard;
-let lockBoard = false;
-let score = 0;
+let isMatch = 0;
 
-document.querySelector(".score").textContent = score;
+// Card images
+const getData = () => [
+    {name: "ElephantCard", image: "assets\images\ElephantCard.png"}
+]
 
-fetch("")
-.then((res) => res.json())
-.then((data) => {
-    cards = [...data, ...data];
-    shuffleCards();
-    generateCards();
-})
+// randomizing cards
+const randomize = () => {
+    const cardData = getData();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+};
+randomize();
 
-function shuffleCards() {
-    let currentIndex = cards.length,
-    randomIndex,
-    temporaryValue;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = cards[currentIndex];
-        cards[currentIndex] = cards[randomIndex];
-        card[randomIndex] = temporaryValue;
-    }
+// Function of the cards
+
+const cardGenerator = () => {
+    const cardData = randomize();
 }
 
-function generateCards() {
-    for (let card of cards) {
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        cardElement.setAttribute("data-name", card.name);
-        cardElement.innerHTML = '
-        <div class="front">
-        <img class="front-image" src=${card.image} />
-        </div>
-        <div class="back"></div>';
-        gridContainer.appendChild(cardElement);
-        cardElement.addEventListener("click", flipCard);
-    }
-}
+// Card information
 
-function flipCard() {
-    if (loclBoard) return;
-    if (this === firstCard) return;
+face.src = item.image;
+cardGenerator.setAttribute('name', item.name);
 
-    this.classList.add("flipped");
-
-    if (!firstCard) {
-        firstCard = this;
-        return;
-    }
-
-    secondCard = this;
-    score++;
-    document.querySelector(".score").textContent = score;
-    lockBoard = true;
-
-    checkForMatch();
-}
-
-function checkForMatch() {
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-
-    isMatch ? disableCards() : unflipCards();
-}
-
-function disableCards() {
-    firstCard.removeEventListener("click", flipCard);
-    secondCard.removeEventListener("click", flipCard);
-
-    resetBoard();
-}
-
-function unflipCards() {
-    setTimeout(() => {
-        firstCard.classList.remove("flipped");
-        secondCard.classList.remove("flipped");
-        resetBoard();
-    }, 1000);
-}
 
 function resetBoard() {
     firstCard = null;
