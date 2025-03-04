@@ -19,3 +19,10 @@ p {
     display: flex;
     justify-content: center;
 }
+
+.restart button {
+    padding: 10px;
+    font-size: 20;
+    background-color: black;
+    color: white;
+}
