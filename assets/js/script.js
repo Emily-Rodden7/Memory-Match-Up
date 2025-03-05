@@ -1,7 +1,7 @@
 let isMatch = 0;
 
 // Card images
-const getData = () => [
+const images = [
     {name: "ElephantCard", image: "assets\images\ElephantCard.png"},
     {name: "GiraffeCard", image: "assets\images\GiraffeCard.png"},
     {name: "GorillaCard", image: "assets\images\GorillaCard.png"},
@@ -12,99 +12,90 @@ const getData = () => [
     {name: "TocoToucanCard", image: "assets\images\TocoToucanCard.png"}
 ];
 
-// randomizing cards
-const randomize = () => {
-    const cardData = getData();
-    cardData.sort(() => Math.random() - 0.5);
-    return cardData;
-};
-randomize();
+let flippedCards = [];
+let matchedCards = 0;
 
-// Function of the cards
+const gridContainer = document.getElementById('gridContainer');
+const restartButton = document.getElementById('restartButton');
 
-const cardGenerator = () => {
-    const cardData = randomize();
+function shuffleCards() {
+    const shuffledCards = [...images];
+    for (let i = shuffledCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + i));
+        [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+    }
+    return shuffledCards;
 }
 
-// Image card information
+function createCards() {
+    const shuffledCards = shuffleCards();
+    gridContainer.innerHTML = '';
+    shuffledCards.forEach(image => {
+        const card = document.createElement('div');
+        card.classList.add('card');
 
-face.src = item.image;
-cardGenerator.setAttribute('name', item.name);
+        const cardInner = document.createElement('div');
+        cardInner.classList.add('card-inner');
 
-// generate HTML
+        // front of card
+        const cardFront = document.createElement('div');
+        cardFront.classList.add('card-front');
+        const imgFront = document.createElement('img');
+        imgFront.src = image.image;
+        cardFront.appendChild(imgFront);
 
-cardData.forEach((item) => {
-    const card = document.createElement('div');
-    const face = document.createElement('img');
-    const back = document.createElement('div');
-    card.classList = 'tile';
-    face.classList = 'face';
-    back.classList = 'back';
-})
+        //Back of card - the hidden side
+        const cardBack = document.createElement('div');
+        cardBack.classList.add('card-back');
+        const imgBack = document.createElement('img');
+        imgBack.src = 'assets\images\Green-CardBack.png';
+        cardBack.appendChild(imgBack);
 
-// Attaching cards to the game-container
+        // Append front and back to cardInner
+        cardInner.appendChild(cardFront);
+        cardInner.appendChild(cardBack);
 
-let game = document.getElementById("game");
-game.appendChild(card);
-card.appendChild(face);
-card.appendChild(back);
-card.addEventListener('click', (e) => {
-    card.classList.toggle("toggleCard");
-    checkCard(e);
-});
+        // Append cardInner to the card and set event listener
+        card.appendChild(cardInner);
+        card.addEventListener('click', () => flippedCards(card));
 
-// Checking if the cards match each other
+        // Append card to the gridContainer
+        gridContainer.appendChild(card);
+    });
+}
 
-const checkCards = (e) => {
-    const clockedTile = e.target;
-    clickedCard.classList.add("flipped");
-    const flippedCards = document.querySelectorAll(".flipped");
+function flipCard(card) {
+    if (card.classList.contains('flipped') || flippedCards.length === 2) return;
+
+    card.classList.add('flipped');
+    flippedCards.push(card);
 
     if (flippedCards.length === 2) {
-        if(
-            flippedCards[0].getAttribute("name") ===
-            flippedCards[1].getAttribute("name")
-        ) {
-            flippedCards.forEach((card) => {
-                card.classList.remove("flipped");
-                card.style.pointerEvents = 'none';
-                isMatch += 1;
-                console.log("It's a match!");
-            });
-        } else {
-            flippedCards.forEach((card) => {
-                card.classList.remove("flipped");
-                setTimeout(() => card.classList.remove("toggleCard"), 900);
-            });
-        }
-        addMove();
-
-        if(isMatch === 18) { 
-            document.querySelector(".win").style.display = "block";
-        }
+        checkMatch();
     }
 }
 
-// reset the game
+function checkMatch() {
+    const [firstCard, secondCard] = flippedCards;
 
-let game = document.getElementById("game");
-const restartButton = document.querySelector(".restart");
-restartButton.addEventListener("click", () => {
-    ServiceWorkerContainer.innerHTML = 0;
-    moves = 0;
-    game.innerHTML = '';
-    cardGenerator();
-});
-
-// Score count function
-
-let scoreContainer = document.getElementById("moves");
-
-let moves = 0;
-scoreContainer.innerHTML = 0;
-console.log(scoreContainer);
-
-function addMove() {
-    moves++;
-    scoreContainer.innerHTML = moves;
+    if (firstCard.querySelector('.card-front img').src === secondCard.querySelector('.card-front img').src) {
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        matchedCards += 2;
+        if (matchedCards === images.length) {
+            setTimeout(() => alert("You've Won! Congratulations."), 500);
+        }
+        flippedCards = [];
+    } else {
+        setTimeout(() => {
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+            flippedCards = [];
+        }, 1000);
+    }
 }
+
+restartButton.addEventListener('click', createCards);
+
+// Start the game
+createCards();
