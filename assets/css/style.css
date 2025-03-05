@@ -65,14 +65,18 @@ gap: 10px;
 }
 
 /* Back of the card - before it's clicked */
-.memory-card {
-position: relative;
-transform-style: preserve-3d;
-transition: all 0.5s ease;
+.card {
+    height: cal(140px / 2 * 3);
+    width: 140px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
 }
 
 /* matching image on the card */ 
-.face-image {
+.front-image {
 height: 50px;
 width: 50px;
 }
@@ -82,7 +86,8 @@ width: 50px;
 transform: rotateY(180deg)
 } 
 
-.front, .back {
+.front,
+.back {
 backface-visibility: hidden;
 border-radius: 15px;
 position: absolute;
