@@ -1,5 +1,4 @@
 const gridContainer = document.querySelector(".grid-container");
-let cards = [];
 let firstCard, secondCard;
 let lockBoard = false;
 let errors = 0;
@@ -17,6 +16,7 @@ const images = [
     {name: "SnakeCard", image: "assets\images\SnakeCard.png"},
     {name: "TocoToucanCard", image: "assets\images\TocoToucanCard.png"}
 ];
+// Duplicating the images to create pairs
 let cards = [...images, ...images];
 
 function shuffleCards() {
@@ -31,19 +31,24 @@ function shuffleCards() {
         cards[randomIndex] = temporaryValue;
     }
 
+    // Generate the cards after shuffle
+    generateCards();
+
     function generateCards() {
-        for (let card of cards) {
+        gridContainer.innerHTML = ''; // clears existing cards
+        cards.forEach((card) => { 
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
             cardElement.setAttribute("data-name", card.name);
             cardElement.innerHTML = `
             <div class = "front">
-            <img class = "front-image" src = CSS= {card.image} />
+            <img class = "front-image" src = "${card.image}" alt="${card.name}" />
             </div>
             <div class = "back"></div>
             `;
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
+        })
         }
     }
     function flipCard() {
@@ -57,19 +62,20 @@ function shuffleCards() {
             return;
         }
         secondCard = this;
-        error++;
-        document.querySelector(".error").textContent = error;
+        errors++;
+        document.querySelector("#error").textContent = error;
         lockBoard = false;
 
         checkForMatch();
     }
-
+    
+    // Function to check if two cards match
     function checkForMatch() {
         let isMatch = firstCard.dataset.name === secondCard.dataset.name;
 
-        isMatch ? disableCards() : unflipCards;
+        isMatch ? disableCards() : unflipCards();
     }
-
+    // Disable the cards if they are a match
     function disableCards() {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
@@ -83,18 +89,19 @@ function shuffleCards() {
             resetBoard();
         }, 1000);
     }
-
+    // Reset the board
     function resetBoard() {
-        firstCard = null;
-        secondCard = null;
-        lockBoard = false;
+        [firstCard, secondCard, lockBoard] = [null, null, false];
     }
+    // Restart the game
     function restart() {
         resetBoard();
         shuffleCards();
         errors = 0;
-        document.querySelector(".error").textContent = errors;
+        document.querySelector("#errors").textContent = errors;
         gridContainer.innerHTML = "";
         generateCards();
     }
-}
+
+    // Shuffling and generating the cards for a new name
+    shuffleCards();

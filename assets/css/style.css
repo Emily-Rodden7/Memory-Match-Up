@@ -21,15 +21,6 @@ color: #fdc500;
 h3 {
 text-align: center;
 }
-/* Transparent box the game is played within */
-#game-section {
-box-sizing:border-box;
-padding: 20px;
-background-color: rgba(255, 255, 255, 0.6);
-margin-left: 10%;
-margin-right: 10%;
-margin-bottom: 0;
-}
 
 /* position of restart button */
 .restart {
