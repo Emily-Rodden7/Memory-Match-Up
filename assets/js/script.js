@@ -11,4 +11,3 @@ const images = [
     {name: "SnakeCard", image: "assets\images\SnakeCard.png"},
     {name: "TocoToucanCard", image: "assets\images\TocoToucanCard.png"}
 ];
-

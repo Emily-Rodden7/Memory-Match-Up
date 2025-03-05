@@ -1,55 +1,100 @@
 html {
-        height: 100%;
-        margin: 0;
-};
+    height: 100%;
+    margin: 0;
+}
 
 body {
-    background-position: center;
-    background-image: url("assets\images\webpage-jungle-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-};
+background-position: center;
+background-image: url("../images/webpage-jungle-background.png");
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+}
 /* Title font */
 h1 {
-    text-align: center;
-    font-size: 50px;
-    font-family: "Sigmar", serif;
-    color: #fdc500;
-};
+text-align: center;
+font-size: 50px;
+font-family: "Sigmar", serif;
+color: #fdc500;
+}
 /* Errors font */
 h3 {
-    text-align: center;
-};
+text-align: center;
+}
 
-#game-container {
-    box-sizing:border-box;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    margin-left: 10%;
-    margin-right: 10%;
-};
+#game-section {
+box-sizing:border-box;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0.6);
+margin-left: 10%;
+margin-right: 10%;
+}
 
-/* position of restart button on page */
+/* position of restart button */
 .restart {
-    display: flex;
-    justify-content: center;
-};
+display: flex;
+justify-content: center;
+}
 
 /* Style of restart button */
 .restart-button {
-    padding: 10px;
-    font-size: 20;
-    background-color: #fdc500;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-};
+padding: 10px;
+font-size: 20;
+background-color: #fdc500;
+color: black;
+font-weight: bold;
+cursor: pointer;
+}
 
-/* When you hover over restart button */
+/* When you hover over Restart Button */
 .restart-button:hover {
-    background-color: #fdc60057;
-    color: white;
-};
+background-color: #fdc60057;
+color: white;
+}
+
+/* Area where all the memory cards will be positioned */
+#game-container {
+display: grid;
+grid-template-columns: repeat(7, 100px);
+grid-template-rows: repeat(4, 100px);
+justify-content: center;
+}
+
+/* Back of the card - before it's clicked */
+.memory-card {
+position: relative;
+transform-style: preserve-3d;
+transition: all 0.5s ease;
+}
+
+/* matching image on the card */ 
+.face-image {
+height: 50px;
+width: 50px;
+}
+
+/* transition of the cards */
+.card.flipped {
+transform: rotateY('180')
+} 
+
+.front, .back {
+backface-visibility: hidden;
+border-radius: 15px;
+position: absolute;
+}
+
+.card .front {
+display: flex;
+justify-content: center;
+align-items: center;
+transform: rotateY('180');
+}
+
+.card .back {
+background-image: url("assets\images\Green-CardBack.png");
+background-repeat: no-repeat ;
+background-position: center;
+background-size: cover;
+backface-visibility: hidden;
+}
