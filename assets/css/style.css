@@ -46,7 +46,7 @@ color: white;
 }
 
 /* Area where all the memory cards will be positioned */
-#game-container {
+.grid-container {
 display: grid;
 grid-template-columns: repeat(6, 100px);
 grid-template-rows: repeat(3, 100px);
@@ -57,19 +57,20 @@ gap: 10px;
 
 /* Back of the card - before it's clicked */
 .card {
-    height: cal(140px / 2 * 3);
-    width: 140px;
+    height: 30px;
+    width: 30px;
     border-radius: 10px;
-    background-color: white;
     position: relative;
     transform-style: preserve-3d;
-    transition: all 0.5s ease-in-out;
+    transition: transform 0.5s;
 }
 
 /* matching image on the card */ 
-.front-image {
-height: 50px;
-width: 50px;
+.front img {
+height: 100%;
+width: 100%;
+border-radius: 10px;
+object-fit: cover;
 }
 
 /* transition of the cards */
@@ -80,7 +81,9 @@ transform: rotateY(180deg)
 .front,
 .back {
 backface-visibility: hidden;
-border-radius: 15px;
+height: 100%;
+width: 100%;
+border-radius: 10px;
 position: absolute;
 }
 
@@ -97,4 +100,5 @@ background-repeat: no-repeat ;
 background-position: center;
 background-size: cover;
 backface-visibility: hidden;
+transform: rotateY(0deg);
 }

@@ -1,12 +1,10 @@
 const gridContainer = document.querySelector(".grid-container");
 let firstCard, secondCard;
-let lockBoard = false;
+let lockBoard = true;
 let errors = 0;
 
-document.querySelector(".errors").textContent = error;
-
 // Card images
-const images = [
+const images = () => [
     {name: "ElephantCard", image: "assets\images\ElephantCard.png"},
     {name: "GiraffeCard", image: "assets\images\GiraffeCard.png"},
     {name: "GorillaCard", image: "assets\images\GorillaCard.png"},
@@ -17,7 +15,7 @@ const images = [
     {name: "TocoToucanCard", image: "assets\images\TocoToucanCard.png"}
 ];
 // Duplicating the images to create pairs
-let cards = [...images, ...images];
+let cards = [...images(), ...images()];
 
 function shuffleCards() {
     let currentIndex = cards.length,
@@ -63,8 +61,8 @@ function shuffleCards() {
         }
         secondCard = this;
         errors++;
-        document.querySelector("#error").textContent = error;
-        lockBoard = false;
+        document.querySelector("#errors").textContent = errors;
+        lockBoard = true;
 
         checkForMatch();
     }
@@ -100,7 +98,6 @@ function shuffleCards() {
         errors = 0;
         document.querySelector("#errors").textContent = errors;
         gridContainer.innerHTML = "";
-        generateCards();
     }
 
     // Shuffling and generating the cards for a new name
