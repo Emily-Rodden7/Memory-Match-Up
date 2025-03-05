@@ -1,7 +1,7 @@
 html {
         height: 100%;
         margin: 0;
-}
+};
 
 body {
     background-position: center;
@@ -9,18 +9,18 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-}
+};
 /* Title font */
 h1 {
     text-align: center;
     font-size: 50px;
     font-family: "Sigmar", serif;
     color: #fdc500;
-}
+};
 /* Errors font */
 h3 {
     text-align: center;
-}
+};
 
 #game-section {
     box-sizing:border-box;
@@ -28,13 +28,13 @@ h3 {
     background-color: rgba(255, 255, 255, 0.6);
     margin-left: 10%;
     margin-right: 10%;
-}
+};
 
-/* position of restart button */
+/* position of restart button on page */
 .restart {
     display: flex;
     justify-content: center;
-}
+};
 
 /* Style of restart button */
 .restart-button {
@@ -44,57 +44,30 @@ h3 {
     color: black;
     font-weight: bold;
     cursor: pointer;
-}
+    display: flex;
+    justify-content: center;
+};
 
-/* When you hover over Restart Button */
+/* When you hover over restart button */
 .restart-button:hover {
     background-color: #fdc60057;
     color: white;
-}
+};
 
 /* Area where all the memory cards will be positioned */
 .game-container {
+    text-align: center;
+};
+
+/* grid design for the cards */ 
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(7, 100px);
-    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
     justify-content: center;
-}
+};
 
-/* Back of the card - before it's clicked */
-.memory-card {
-    position: relative;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
-}
-
-/* matching Image on the card */ 
-.face-image {
-    height: 50px;
-    width: 50px;
-}
-
-/* transition of the cards */
-.card.flipped {
-    transform: rotateY('180')
-} 
-
-.front, .back {
-    backface-visibility: hidden;
-    border-radius: 15px;
-    position: absolute;
-}
-
-.card .front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY('180');
-}
-
-.card .back {
-    background-image: url("assets\images\Green-CardBack.png");
-    background-repeat: no-repeat ;
-    background-position: center;
-    background-size: cover;
-    backface-visibility: hidden;
+.card {
+    
 }
