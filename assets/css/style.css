@@ -1,3 +1,8 @@
+html {
+        height: 100%;
+        margin: 0;
+}
+
 body {
     background-position: center;
     background-image: url("../images/webpage-jungle-background.png");
@@ -5,16 +10,24 @@ body {
     background-size: cover;
     color: white;
 }
-
+/* Title font */
 h1 {
     text-align: center;
     font-size: 50px;
     font-family: "Sigmar", serif;
     color: #fdc500;
 }
-
-p {
+/* Errors font */
+h3 {
     text-align: center;
+}
+
+#game-section {
+    box-sizing:border-box;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 /* position of restart button */
@@ -24,14 +37,21 @@ p {
 }
 
 /* Style of restart button */
-.restart button {
+.restart-button {
     padding: 10px;
     font-size: 20;
     background-color: #fdc500;
     color: black;
     font-weight: bold;
-
+    cursor: pointer;
 }
+
+/* When you hover over Restart Button */
+.restart-button:hover {
+    background-color: #fdc60057;
+    color: white;
+}
+
 /* Area where all the memory cards will be positioned */
 .game-container {
     display: grid;

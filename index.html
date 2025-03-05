@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
     <title>Memory Match Up</title>
+    <!-- Stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -16,19 +17,20 @@
         <h1 class="heading">Memory Match Up</h1>
     </header>
 
+    <!-- errors will be counted up-->
+    <div class = "errors"></div>
+    <h3>Errors: <span id="errors">0</span></h3>
+    
     <!-- Game section -->
      <section id ="game-section">
-        <div class = "wrapper">
-
-            <!-- errors will be counted up-->
-             <div class = "errors"></div>
-             <h3>Errors:<span id="errors">0</span></h3>
-        </div>
-        <!-- reset game -->
-         <div class = "reset">
-            
-         </div>
+        <div class = "wrapper"></div>
+        
      </section>
+
+    <!-- restart game -->
+    <div class = "reset">
+        <button class="restart-button">Restart</button>
+    </div>
 
     
     <script src="assets/js/script.js"></script>
