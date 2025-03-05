@@ -21,19 +21,21 @@ color: #fdc500;
 h3 {
 text-align: center;
 }
-
+/* Transparent box the game is played within */
 #game-section {
 box-sizing:border-box;
 padding: 20px;
 background-color: rgba(255, 255, 255, 0.6);
 margin-left: 10%;
 margin-right: 10%;
+margin-bottom: 0;
 }
 
 /* position of restart button */
 .restart {
 display: flex;
 justify-content: center;
+padding-top: 1%;
 }
 
 /* Style of restart button */
@@ -55,10 +57,11 @@ color: white;
 /* Area where all the memory cards will be positioned */
 #game-container {
 display: grid;
-grid-template-columns: repeat(7, 100px);
-grid-template-rows: repeat(4, 100px);
+grid-template-columns: repeat(6, 100px);
+grid-template-rows: repeat(3, 100px);
 background-color: rgba(255, 255, 255, 0.6);
 justify-content: center;
+gap: 10px;
 }
 
 /* Back of the card - before it's clicked */
