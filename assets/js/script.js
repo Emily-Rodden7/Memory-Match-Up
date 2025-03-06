@@ -1,6 +1,6 @@
 let lockBoard = false;
 let firstCards, secondCard;
-let errors = 0;
+let attempts = 0;
 
 // Card images
 const imageNames = [
@@ -74,8 +74,8 @@ function shuffleCards() {
     function checkForMatch() {
         let isMatch = firstCard.dataset.name === secondCard.dataset.name;
         if (!isMatch) {
-            errors++; // only increase errors if cards don't match
-            document.querySelector("#errors").textContent = errors;
+            attempts++; // only increase errors if cards don't match
+            document.querySelector("#attempts").textContent = attempts;
         }
         // Handle the card match or mismatch
         isMatch ? disableCards() : unflipCards();
@@ -101,8 +101,8 @@ function shuffleCards() {
 
     // Restart the game
     function restart() {
-        errors = 0;
-        document.querySelector("#errors").textContent = errors;
+        attempts = 0;
+        document.querySelector("#attempts").textContent = attempts;
 
     // Reset game state
     resetCards();
