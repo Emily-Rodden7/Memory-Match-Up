@@ -133,9 +133,9 @@ function checkForWin() {
 // popup with attempt count
 function showWinPopup() {
     const showWinPopup = document.getElementById("winPopup");
-    const attemptDisplay = document.getElementById("attempts");
+    const attemptsPopup = document.getElementById("attemptsPopup");
 
-    attemptDisplay.textContent = attempts;
+    attemptsPopup.textContent = attempts;
     winPopup.style.display = "flex"
 
     restartButton.style.display = "none"; // hide restart button when pop is visible
