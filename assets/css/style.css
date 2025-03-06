@@ -50,7 +50,6 @@ color: white;
 display: grid;
 grid-template-columns: repeat(6, 100px);
 grid-template-rows: repeat(3, 100px);
-background-color: rgba(255, 255, 255, 0.4);
 justify-content: center;
 gap: 10px;
 }
