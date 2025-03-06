@@ -85,6 +85,9 @@ function shuffleCards() {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
 
+        // Check if the player has won
+        checkForWin();
+        
         resetCards()
     }
     function unflipCards() {
@@ -110,4 +113,28 @@ function shuffleCards() {
     // Shuffling and generating the cards for a new name
     cards = [...imageNames, ...imageNames];
     shuffleCards();
+
+    // Hide the "You Win" popup
+    const winPopup = document.getElementById("winPopup");
+    winPopup.style.display = "none";
 };
+
+// popup window for you win
+function checkForWin() {
+    const allCards = document.querySelectorAll(".card");
+    const flippedCards = document.querySelectorAll(".card.flipped");
+
+    // if all cards are flipped the game is won
+    if (allCards.length === flippedCards.length) {
+        showWinPopup();
+    }
+}
+
+// popup with attempt count
+function showWinPopup() {
+    const showWinPopup = document.getElementById("winPopup");
+    const attemptDisplay = document.getElementById("attempts");
+
+    attemptDisplay.textContent = attempts;
+    winPopup.style.display = "flex"
+}
