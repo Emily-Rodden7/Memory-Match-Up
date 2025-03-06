@@ -51,6 +51,7 @@ function shuffleCards() {
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
         })
+        resetCards();
         }
     }
     function flipCard() {
@@ -66,7 +67,7 @@ function shuffleCards() {
         secondCard = this;
         lockBoard = true;
 
-        checkForMatch();
+        checkForMatch(); // Checks if the two cards match
     }
     
     // Function to check if two cards match

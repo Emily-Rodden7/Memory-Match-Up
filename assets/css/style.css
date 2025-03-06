@@ -65,7 +65,7 @@ gap: 10px;
     transition: transform 0.5s;
 }
 
-/* matching image on the card */ 
+/* matching image on the card (hidden before flip) */ 
 .front img {
 height: 100%;
 width: 100%;
@@ -73,11 +73,12 @@ border-radius: 10px;
 object-fit: cover;
 }
 
-/* transition of the cards */
+/* when card is flipped */
 .card.flipped {
 transform: rotateY(180deg);
 } 
 
+/* Front and Back sides */
 .front,
 .back {
 height: 100%;
@@ -86,6 +87,7 @@ border-radius: 10px;
 position: absolute;
 }
 
+/* Initially hides the front card */
 .card .front {
 display: flex;
 justify-content: center;
@@ -94,6 +96,7 @@ transform: rotateY(180deg);
 backface-visibility: hidden;  /* Prevents the picture side being visable */
 }
 
+/* Back of card is what you see first (before clicking) */
 .card .back {
 background-color: #fdc500;
 background-repeat: no-repeat ;
