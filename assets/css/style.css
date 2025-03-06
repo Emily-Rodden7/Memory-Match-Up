@@ -128,7 +128,6 @@ backface-visibility: hidden;
     color: white;
     display: flex;
     position: absolute;
-
 }
 
 /* Popup content box around the text */
@@ -146,7 +145,6 @@ backface-visibility: hidden;
     top: 50%;
     left: 50%;
     width: 300px;
-
 }
 
 /* Style for the header inside the popup */
@@ -199,6 +197,11 @@ backface-visibility: hidden;
     body {
         background-size: cover;
     }
+    .popup-content {
+        width: 70%;
+        padding: 20px;
+        max-width: 250px;
+    }
 }
 
 /* css for small screens (phones) */
@@ -220,6 +223,11 @@ backface-visibility: hidden;
     body {
         background-size: cover;
     }
+    .popup-content {
+        width: 60%;
+        padding: 15px;
+        max-width: 200px;
+    }
 }
 
 /* css for extra small screens (smaller phones) */
@@ -240,5 +248,10 @@ backface-visibility: hidden;
     }
     body {
         background-size: cover;
+    }
+    .popup-content {
+        width: 50%;
+        padding: 10px;
+        max-width: 180px;
     }
 }
