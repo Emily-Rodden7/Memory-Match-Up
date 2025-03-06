@@ -15,13 +15,32 @@ const imageNames = [
     {name: "HippoCard", image: "assets/images/HippoCard.png"}
 ];
 
+// Track if sound is enabled or disabled ( true = sound)
+let soundEnabled = true;
+
 // Sound played each time there is a match
 const matchSound = new Audio("assets/audio/ChimeWinSound.mp3");
- matchSound.volume = 0.4; // reduce the volume
 
  // Applauce sound for when the Win Popup appears
  const applauseSound = new Audio("assets/audio/ApplauseSound.mp3");
- applauseSound.volume = 0.4; //reduce the volume
+
+ document.getElementById('soundToggleButton').addEventListener('click', toggleSound);
+
+ // Function to toggle the sound 
+ function toggleSound() {
+    soundEnabled = !soundEnabled; 
+ const soundButton = document.getElementById('soundToggleButton');
+ soundButton.textContent = soundEnabled ? "Mute Sounds" : "Unmute Sounds"; // Change buttont text
+
+ // Set volume based on the soundEnabled state
+ if (!soundEnabled) {
+    matchSound.volume = 0;
+    applauseSound.volume = 0;
+ } else {
+    matchSound.volume = 0.4;
+    applauseSound.volume = 0.4;
+ }
+ }
 
 // Duplicating the images to create pairs
 let cards = [...imageNames, ...imageNames];
