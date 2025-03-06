@@ -87,7 +87,7 @@ function shuffleCards() {
 
         // Check if the player has won
         checkForWin();
-        
+
         resetCards()
     }
     function unflipCards() {
@@ -137,4 +137,6 @@ function showWinPopup() {
 
     attemptDisplay.textContent = attempts;
     winPopup.style.display = "flex"
+
+    restartButton.style.display = "none"; // hide restart button when pop is visible
 }
