@@ -169,7 +169,7 @@ function checkForWin() {
 
 // popup with attempt count
 function showWinPopup() {
-    const showWinPopup = document.getElementById("winPopup");
+    const winPopup = document.getElementById("winPopup");
     const attemptsPopup = document.getElementById("attemptsPopup");
 
     // Play applause sound
