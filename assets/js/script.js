@@ -24,19 +24,23 @@ const matchSound = new Audio("assets/audio/ChimeWinSound.mp3");
  // Applauce sound for when the Win Popup appears
  const applauseSound = new Audio("assets/audio/ApplauseSound.mp3");
 
- document.getElementById('soundToggleButton').addEventListener('click', toggleSound);
+ // Get the sound toggle image element
+ const soundToggleButton = document.getElementById('soundToggleButton');
 
+ // Add an event listener to the image
+ soundToggleButton.addEventListener('click', toggleSound);
+ 
  // Function to toggle the sound 
  function toggleSound() {
-    soundEnabled = !soundEnabled; 
- const soundButton = document.getElementById('soundToggleButton');
- soundButton.textContent = soundEnabled ? "Mute Sounds" : "Unmute Sounds"; // Change buttont text
+    soundEnabled = !soundEnabled;
 
- // Set volume based on the soundEnabled state
+ // Change the image based on the sound state
  if (!soundEnabled) {
+    soundToggleButton.src = 'assets/images/SoundOff.png'; // Show sound on image
     matchSound.volume = 0;
     applauseSound.volume = 0;
  } else {
+    soundToggleButton.src = 'assets/images/SoundOn.png'; // Show sound off image
     matchSound.volume = 0.4;
     applauseSound.volume = 0.4;
  }
@@ -173,6 +177,7 @@ function showWinPopup() {
 
     attemptsPopup.textContent = attempts;
     winPopup.style.display = "flex"
-
+    
+    const restartButton = document.getElementById("restartButton");
     restartButton.style.display = "none"; // hide restart button when pop is visible
 }

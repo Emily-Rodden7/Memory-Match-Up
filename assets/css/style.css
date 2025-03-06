@@ -50,6 +50,14 @@ color: white;
     display: none;
 }
 
+/* Style fo the sound toggle button */
+#soundToggleButton {
+cursor: pointer;
+width: 50px;
+height: 50px;
+padding-left: 20px;
+}
+
 /* Area where all the memory cards will be positioned */
 .grid-container {
 display: grid;
