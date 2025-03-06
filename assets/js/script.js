@@ -64,8 +64,6 @@ function shuffleCards() {
             return;
         }
         secondCard = this;
-        errors++;
-        document.querySelector("#errors").textContent = errors;
         lockBoard = true;
 
         checkForMatch();
@@ -74,7 +72,11 @@ function shuffleCards() {
     // Function to check if two cards match
     function checkForMatch() {
         let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-
+        if (!isMatch) {
+            errors++; // only increase errors if cards don't match
+            document.querySelector("#errors").textContent = errors;
+        }
+        // Handle the card match or mismatch
         isMatch ? disableCards() : unflipCards();
     }
     // Disable the cards if they are a match
