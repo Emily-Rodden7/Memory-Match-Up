@@ -14,6 +14,15 @@ const imageNames = [
     {name: "TocoToucanCard", image: "assets/images/TocoToucanCard.png"},
     {name: "HippoCard", image: "assets/images/HippoCard.png"}
 ];
+
+// Sound played each time there is a match
+const matchSound = new Audio("assets/audio/ChimeWinSound.mp3");
+ matchSound.volume = 0.4; // reduce the volume
+
+ // Applauce sound for when the Win Popup appears
+ const applauseSound = new Audio("assets/audio/ApplauseSound.mp3");
+ applauseSound.volume = 0.4; //reduce the volume
+
 // Duplicating the images to create pairs
 let cards = [...imageNames, ...imageNames];
 
@@ -79,6 +88,11 @@ function shuffleCards() {
         }
         // Handle the card match or mismatch
         isMatch ? disableCards() : unflipCards();
+
+        // Play match sound when the cards match
+        if (isMatch) {
+            matchSound.play(); 
+        }
     }
     // Disable the cards if they are a match
     function disableCards() {
@@ -134,6 +148,9 @@ function checkForWin() {
 function showWinPopup() {
     const showWinPopup = document.getElementById("winPopup");
     const attemptsPopup = document.getElementById("attemptsPopup");
+
+    // Play applause sound
+    applauseSound.play();
 
     attemptsPopup.textContent = attempts;
     winPopup.style.display = "flex"
