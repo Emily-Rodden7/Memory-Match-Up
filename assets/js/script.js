@@ -20,7 +20,6 @@ let cards = [...imageNames, ...imageNames];
     shuffleCards();
 
 function shuffleCards() {
-    console.log("IN shuffleCards");
     let currentIndex = cards.length,
     randomIndex,
     temporaryValue;
@@ -37,8 +36,6 @@ function shuffleCards() {
     
     function generateCards() {
         const gridContainer = document.getElementById("gridContainer");
-        console.log("IN generateCards");
-        console.log("gridContainer: ", gridContainer);
 
         gridContainer.innerHTML = ''; // clears existing cards
         cards.forEach((card) => { 
@@ -54,7 +51,6 @@ function shuffleCards() {
             `;
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
-            console.log("cardElement: ", cardElement);
         })
         }
     }
@@ -87,27 +83,29 @@ function shuffleCards() {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
 
-        resetBoard()
+        resetCards()
     }
     function unflipCards() {
         setTimeout(() => {
             firstCard.classList.remove("flipped");
             secondCard.classList.remove("flipped");
-            resetBoard();
+            resetCards();
         }, 1000);
-    }
+    };
     // Reset the board
-    function resetBoard() {
-        [firstCard, secondCard, lockBoard] = [null, null, false];
-    }
+    function resetCards() {
+        [firstCard, secondCard, lockBoard] = [null, null, false]
+    };
+
     // Restart the game
     function restart() {
-        resetBoard();
-        shuffleCards();
         errors = 0;
         document.querySelector("#errors").textContent = errors;
-        document.getElementById("gridContainer").innerHTML = "";
-    }
+
+    // Reset game state
+    resetCards();
 
     // Shuffling and generating the cards for a new name
+    cards = [...imageNames, ...imageNames];
     shuffleCards();
+};
