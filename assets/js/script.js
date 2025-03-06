@@ -1,23 +1,26 @@
-const gridContainer = document.querySelector(".grid-container");
-let firstCard, secondCard;
-let lockBoard = true;
+let lockBoard = false;
+let firstCards, secondCard;
 let errors = 0;
 
 // Card images
-const images = () => [
-    {name: "ElephantCard", image: "assets\images\ElephantCard.png"},
-    {name: "GiraffeCard", image: "assets\images\GiraffeCard.png"},
-    {name: "GorillaCard", image: "assets\images\GorillaCard.png"},
-    {name: "HippoCard", image: "assets\images\LeopardCard.png"},
-    {name: "LionFaceCard", image: "assets\images\LionFaceCard.png"},
-    {name: "MonkeyCard", image: "assets\images\MonkeyCard.png"},
-    {name: "SnakeCard", image: "assets\images\SnakeCard.png"},
-    {name: "TocoToucanCard", image: "assets\images\TocoToucanCard.png"}
+const imageNames = [
+    {name: "ElephantCard", image: "assets/images/ElephantCard.png"},
+    {name: "GiraffeCard", image: "assets/images/GiraffeCard.png"},
+    {name: "GorillaCard", image: "assets/images/GorillaCard.png"},
+    {name: "LeopardCard", image: "assets/images/LeopardCard.png"},
+    {name: "LionFaceCard", image: "assets/images/LionFaceCard.png"},
+    {name: "MonkeyCard", image: "assets/images/MonkeyCard.png"},
+    {name: "SnakeCard", image: "assets/images/SnakeCard.png"},
+    {name: "TocoToucanCard", image: "assets/images/TocoToucanCard.png"},
+    {name: "HippoCard", image: "assets/images/HippoCard.png"}
 ];
 // Duplicating the images to create pairs
-let cards = [...images(), ...images()];
+let cards = [...imageNames, ...imageNames];
+
+    shuffleCards();
 
 function shuffleCards() {
+    console.log("IN shuffleCards");
     let currentIndex = cards.length,
     randomIndex,
     temporaryValue;
@@ -31,8 +34,12 @@ function shuffleCards() {
 
     // Generate the cards after shuffle
     generateCards();
-
+    
     function generateCards() {
+        const gridContainer = document.getElementById("gridContainer");
+        console.log("IN generateCards");
+        console.log("gridContainer: ", gridContainer);
+
         gridContainer.innerHTML = ''; // clears existing cards
         cards.forEach((card) => { 
             const cardElement = document.createElement("div");
@@ -42,10 +49,12 @@ function shuffleCards() {
             <div class = "front">
             <img class = "front-image" src = "${card.image}" alt="${card.name}" />
             </div>
+            
             <div class = "back"></div>
             `;
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
+            console.log("cardElement: ", cardElement);
         })
         }
     }
@@ -97,7 +106,7 @@ function shuffleCards() {
         shuffleCards();
         errors = 0;
         document.querySelector("#errors").textContent = errors;
-        gridContainer.innerHTML = "";
+        document.getElementById("gridContainer").innerHTML = "";
     }
 
     // Shuffling and generating the cards for a new name
