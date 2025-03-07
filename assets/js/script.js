@@ -40,11 +40,11 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
 
  // Change the image based on the sound state
  if (!soundEnabled) {
-    soundToggleButton.src = 'assets/images/soundoff.png'; // Show sound on image
+    soundToggleButton.src = 'assets/images/sound-on.png'; // Show sound on image
     matchSound.volume = 0;
     applauseSound.volume = 0;
  } else {
-    soundToggleButton.src = 'assets/images/soundon.png'; // Show sound off image
+    soundToggleButton.src = 'assets/images/sound-off.png'; // Show sound off image
     matchSound.volume = 0.2;
     applauseSound.volume = 0.;
  }
