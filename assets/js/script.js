@@ -39,7 +39,7 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
     soundEnabled = !soundEnabled;
 
  // Change the image based on the sound state
- if (!soundEnabled) {
+ if (soundEnabled) {
     soundToggleButton.src = "assets/images/sound-on.png"; // Show sound on image
     matchSound.volume = 0.2;
     applauseSound.volume = 0.2;
