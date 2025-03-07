@@ -4,15 +4,15 @@ let attempts = 0;
 
 // Card images
 const imageNames = [
-    {name: "elephantcard", image: "assets/images/elephantcard.png"},
-    {name: "giraffecard", image: "assets/images/giraffecard.png"},
-    {name: "gorillacard", image: "assets/images/gorillacard.png"},
-    {name: "leopardcard", image: "assets/images/leopardcard.png"},
-    {name: "lioncard", image: "assets/images/lioncard.png"},
-    {name: "monkeycard", image: "assets/images/monkeycard.png"},
-    {name: "snakecard", image: "assets/images/snakecard.png"},
-    {name: "tocotoucancard", image: "assets/images/tocotoucancard.png"},
-    {name: "hippocard", image: "assets/images/hippocard.png"}
+    {name: "elephant", image: "assets/images/elephant.png"},
+    {name: "giraffe", image: "assets/images/giraffe.png"},
+    {name: "gorilla", image: "assets/images/gorilla.png"},
+    {name: "leopard", image: "assets/images/leopard.png"},
+    {name: "lion", image: "assets/images/lion.png"},
+    {name: "monkey", image: "assets/images/monkey.png"},
+    {name: "snake", image: "assets/images/snake.png"},
+    {name: "tocotoucan", image: "assets/images/tocotoucan.png"},
+    {name: "hippo", image: "assets/images/hippo.png"}
 ];
 
 // Make sure win popup stays hidden until the game is won
