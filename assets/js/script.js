@@ -15,6 +15,10 @@ const imageNames = [
     {name: "HippoCard", image: "assets/images/HippoCard.png"}
 ];
 
+// Make sure win popup stays hidden until the game is won
+const winPopup = document.getElementById("winPopup");
+winPopup.style.display = "none";
+
 // Track if sound is enabled or disabled ( true = sound)
 let soundEnabled = true;
 
@@ -41,8 +45,8 @@ const matchSound = new Audio("assets/audio/ChimeWinSound.mp3");
     applauseSound.volume = 0;
  } else {
     soundToggleButton.src = 'assets/images/SoundOn.png'; // Show sound off image
-    matchSound.volume = 0.4;
-    applauseSound.volume = 0.4;
+    matchSound.volume = 0.2;
+    applauseSound.volume = 0.;
  }
  }
 
@@ -161,7 +165,7 @@ function checkForWin() {
     const allCards = document.querySelectorAll(".card");
     const flippedCards = document.querySelectorAll(".card.flipped");
 
-    // if all cards are flipped the game is won
+    // if all cards are flipped, the game is won
     if (allCards.length === flippedCards.length) {
         showWinPopup();
     }
