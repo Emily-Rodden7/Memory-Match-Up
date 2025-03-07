@@ -23,10 +23,10 @@ winPopup.style.display = "none";
 let soundEnabled = true;
 
 // Sound played each time there is a match
-const matchSound = new Audio("assets/audio/chimewinsound.mp3");
+const matchSound = new Audio("assets/audio/chime-winsound.mp3");
 
  // Applauce sound for when the Win Popup appears
- const applauseSound = new Audio("assets/audio/applausesound.mp3");
+ const applauseSound = new Audio("assets/audio/applause-sound.mp3");
 
  // Get the sound toggle image element
  const soundToggleButton = document.getElementById('soundToggleButton');
