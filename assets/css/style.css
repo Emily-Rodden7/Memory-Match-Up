@@ -33,7 +33,7 @@ padding-top: 1%;
 .restart-button {
 padding: 10px;
 font-size: 20;
-background-color: orangered;
+background-color: rgb(255, 69, 0);
 color: black;
 font-weight: bold;
 cursor: pointer;
