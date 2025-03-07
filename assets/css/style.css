@@ -2,7 +2,7 @@ html {
     height: 100%;
     margin: 0;
 }
-
+/* Background page image */
 body {
 background-position: center;
 background-image: url("../images/webpage-jungle-background.png");
@@ -181,7 +181,7 @@ backface-visibility: hidden;
     font-weight: bold;
     cursor: pointer;
     }
-
+/* change the restart popup button */
 .popup-content button:hover {
     background-color:#675513;
     color: white;

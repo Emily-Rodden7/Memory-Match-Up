@@ -55,6 +55,7 @@ let cards = [...imageNames, ...imageNames];
 
     shuffleCards();
 
+// Shuffle cards (Watched YouTube videos for help here)
 function shuffleCards() {
     let currentIndex = cards.length,
     randomIndex,
@@ -67,7 +68,7 @@ function shuffleCards() {
         cards[randomIndex] = temporaryValue;
     }
 
-    // Generate the cards after shuffle
+    // Generate the cards after shuffle (Watched YouTube videos for help here)
     generateCards();
     
     function generateCards() {
@@ -90,6 +91,7 @@ function shuffleCards() {
         resetCards();
         }
     }
+    // Flip function to turn the cards around (Watched YouTube videos for help here)
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -130,7 +132,8 @@ function shuffleCards() {
         checkForWin();
 
         resetCards()
-    }
+    } 
+    // Unflip the cards, not showing the animals
     function unflipCards() {
         setTimeout(() => {
             firstCard.classList.remove("flipped");
@@ -171,7 +174,7 @@ function checkForWin() {
     }
 }
 
-// popup with attempt count
+// popup appears with attempt count
 function showWinPopup() {
     const winPopup = document.getElementById("winPopup");
     const attemptsPopup = document.getElementById("attemptsPopup");
@@ -183,5 +186,5 @@ function showWinPopup() {
     winPopup.style.display = "flex"
     
     const restartButton = document.getElementById("restartButton");
-    restartButton.style.display = "none"; // hide restart button when pop is visible
+    restartButton.style.display = "none"; // hide restart button when popup is visible
 }
