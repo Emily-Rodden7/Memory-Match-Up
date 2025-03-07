@@ -4,15 +4,15 @@ let attempts = 0;
 
 // Card images
 const imageNames = [
-    {name: "ElephantCard", image: "assets/images/ElephantCard.png"},
-    {name: "GiraffeCard", image: "assets/images/GiraffeCard.png"},
-    {name: "GorillaCard", image: "assets/images/GorillaCard.png"},
-    {name: "LeopardCard", image: "assets/images/LeopardCard.png"},
-    {name: "LionFaceCard", image: "assets/images/LionFaceCard.png"},
-    {name: "MonkeyCard", image: "assets/images/MonkeyCard.png"},
-    {name: "SnakeCard", image: "assets/images/SnakeCard.png"},
-    {name: "TocoToucanCard", image: "assets/images/TocoToucanCard.png"},
-    {name: "HippoCard", image: "assets/images/HippoCard.png"}
+    {name: "elephantcard", image: "assets/images/elephantcard.png"},
+    {name: "giraffecard", image: "assets/images/giraffecard.png"},
+    {name: "gorillacard", image: "assets/images/gorillacard.png"},
+    {name: "leopardcard", image: "assets/images/leopardcard.png"},
+    {name: "lioncard", image: "assets/images/lioncard.png"},
+    {name: "monkeycard", image: "assets/images/monkeycard.png"},
+    {name: "snakecard", image: "assets/images/snakecard.png"},
+    {name: "tocotoucancard", image: "assets/images/tocotoucancard.png"},
+    {name: "hippocard", image: "assets/images/hippocard.png"}
 ];
 
 // Make sure win popup stays hidden until the game is won
@@ -23,10 +23,10 @@ winPopup.style.display = "none";
 let soundEnabled = true;
 
 // Sound played each time there is a match
-const matchSound = new Audio("assets/audio/ChimeWinSound.mp3");
+const matchSound = new Audio("assets/audio/chimewinsound.mp3");
 
  // Applauce sound for when the Win Popup appears
- const applauseSound = new Audio("assets/audio/ApplauseSound.mp3");
+ const applauseSound = new Audio("assets/audio/applausesound.mp3");
 
  // Get the sound toggle image element
  const soundToggleButton = document.getElementById('soundToggleButton');
