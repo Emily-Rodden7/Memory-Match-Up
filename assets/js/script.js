@@ -143,7 +143,8 @@ function shuffleCards() {
     };
     // Reset the board
     function resetCards() {
-        [firstCard, secondCard, lockBoard] = [null, null, false]
+        [firstCard, secondCard, lockBoard] = [null, null, false];
+        restartButton.style.display = "block"; // Game restart button appears
     };
 
     // Restart the game
@@ -186,5 +187,5 @@ function showWinPopup() {
     winPopup.style.display = "flex"
     
     const restartButton = document.getElementById("restartButton");
-    restartButton.style.display = "none"; // hide restart button when popup is visible
+    restartButton.style.display = "none"; // hide in game restart button when popup is visible
 }
