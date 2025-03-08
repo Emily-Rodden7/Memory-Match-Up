@@ -141,10 +141,10 @@ function shuffleCards() {
             resetCards();
         }, 1000);
     };
-    // Reset the board
+    // Reset the page
     function resetCards() {
         [firstCard, secondCard, lockBoard] = [null, null, false];
-        restartButton.style.display = "block"; // Game restart
+        
     };
 
     // Restart the game
@@ -154,6 +154,9 @@ function shuffleCards() {
 
     // Reset game state
     resetCards();
+
+    const restartButton = document.getElementById("restartButton");
+    restartButton.style.display = "inline";
 
     // Shuffling and generating the cards for a new name
     cards = [...imageNames, ...imageNames];
@@ -184,8 +187,8 @@ function showWinPopup() {
     applauseSound.play();
 
     attemptsPopup.textContent = attempts;
-    winPopup.style.display = "flex"
-    
+    winPopup.style.display = "flex";
+
     const restartButton = document.getElementById("restartButton");
     restartButton.style.display = "none"; // hide in game restart button when popup is visible
 }
