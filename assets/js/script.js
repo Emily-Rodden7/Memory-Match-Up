@@ -4,15 +4,15 @@ let attempts = 0;
 
 // Card images
 const imageNames = [
-    {name: "elephant", image: "assets/images/elephant.png"},
-    {name: "giraffe", image: "assets/images/giraffe.png"},
-    {name: "gorilla", image: "assets/images/gorilla.png"},
-    {name: "leopard", image: "assets/images/leopard.png"},
-    {name: "lion", image: "assets/images/lion.png"},
-    {name: "monkey", image: "assets/images/monkey.png"},
-    {name: "snake", image: "assets/images/snake.png"},
-    {name: "tocotoucan", image: "assets/images/tocotoucan.png"},
-    {name: "hippo", image: "assets/images/hippo.png"}
+    {image: "assets/images/elephant.png", name: "elephant"},
+    {image: "assets/images/giraffe.png", name: "giraffe"},
+    {image: "assets/images/gorilla.png", name: "gorilla"},
+    {image: "assets/images/leopard.png", name: "leopard"},
+    {image: "assets/images/lion.png", name: "lion"},
+    {image: "assets/images/monkey.png", name: "monkey"},
+    {image: "assets/images/snake.png", name: "snake"},
+    {image: "assets/images/tocotoucan.png", name: "tocotoucan"},
+    {image: "assets/images/hippo.png", name: "hippo"}
 ];
 
 // Make sure win popup stays hidden until the game is won
@@ -29,10 +29,10 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
  const applauseSound = new Audio("assets/audio/applause-sound.mp3");
 
  // Get the sound toggle image element
- const soundToggleButton = document.getElementById('soundToggleButton');
+ const soundToggleButton = document.getElementById("soundToggleButton");
 
  // Add an event listener to the image
- soundToggleButton.addEventListener('click', toggleSound);
+ soundToggleButton.addEventListener("click", toggleSound);
  
  // Function to toggle the sound 
  function toggleSound() {
@@ -45,7 +45,7 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
     applauseSound.volume = 0;
  } else {
     soundToggleButton.src = "assets/images/sound-on.png"; // Show sound on image
-    matchSound.volume = 0.2
+    matchSound.volume = 0.2;
     applauseSound.volume = 0.2;
  }
  }
@@ -73,7 +73,7 @@ function shuffleCards() {
     
     function generateCards() {
         const gridContainer = document.getElementById("gridContainer");
-        gridContainer.innerHTML = ''; // clears existing cards
+        gridContainer.innerHTML = ""; // clears existing cards
         cards.forEach((card) => { 
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
@@ -87,7 +87,7 @@ function shuffleCards() {
             `;
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
-        })
+        });
         resetCards();
         }
     }
