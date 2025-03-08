@@ -1,5 +1,5 @@
 let lockBoard = false;
-let firstCards;
+let firstCard;
 let secondCard;
 let attempts = 0;
 
@@ -34,19 +34,19 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
 
  // Add an event listener to the image
  soundToggleButton.addEventListener("click", toggleSound);
- 
- // Function to toggle the sound 
+
+ // Function to toggle the sound
  function toggleSound() {
     soundEnabled = !soundEnabled;
 
  // Change the image based on the sound state
- if (!soundEnabled) {
-    soundToggleButton.src = "assets/images/sound-off.png"; // Show sound off image
+ if (!soundEnabled) { // Show sound off image
+    soundToggleButton.src = "assets/images/sound-off.png";
     matchSound.volume = 0;
     applauseSound.volume = 0;
- } else {
-    soundToggleButton.src = "assets/images/sound-on.png"; // Show sound on image
-    matchSound.volume = 0.2
+ } else { // Show sound on image
+    soundToggleButton.src = "assets/images/sound-on.png";
+    matchSound.volume = 0.2;
     applauseSound.volume = 0.2;
  }
  }
@@ -71,19 +71,18 @@ function shuffleCards() {
 
     // Generate the cards after shuffle (Watched YouTube videos for help here)
     generateCards();
-    
+
     function generateCards() {
         const gridContainer = document.getElementById("gridContainer");
-        gridContainer.innerHTML = ''; // clears existing cards
-        cards.forEach((card) => { 
+        gridContainer.innerHTML = ""; // clears existing cards
+        cards.forEach((card) => {
             const cardElement = document.createElement("div");
             cardElement.classList.add("card");
             cardElement.setAttribute("data-name", card.name);
             cardElement.innerHTML = `
-            <div class = "front"> 
+            <div class = "front">
             <img class = "front-image" src=${card.image} alt=${card.name} />
             </div>
-            
             <div class = "back"></div>
             `;
             gridContainer.appendChild(cardElement);
@@ -92,7 +91,7 @@ function shuffleCards() {
         resetCards();
         }
     }
-    // Flip function to turn the cards around (Watched YouTube videos for help here)
+    // Flip the cards around (Watched YouTube videos for help)
     function flipCard() {
         if (!lockBoard) {
 
@@ -102,14 +101,13 @@ function shuffleCards() {
 
         if (!firstCard) {
             firstCard = this;
-            return;
         }
-        secondCard = this;
-        lockBoard = true;
+        else {
+            secondCard = this;
+            lockBoard = true;
+            checkForMatch(); // Checks if the two cards match
+        }}}
 
-        checkForMatch(); // Checks if the two cards match
-        }}
-    
     // Function to check if two cards match
     function checkForMatch() {
         let isMatch = firstCard.dataset.name === secondCard.dataset.name;
@@ -133,7 +131,7 @@ function shuffleCards() {
         checkForWin();
 
         resetCards()
-    } 
+    }
     // Unflip the cards, not showing the animals
     function unflipCards() {
         setTimeout(() => {
@@ -145,7 +143,7 @@ function shuffleCards() {
     // Reset the page
     function resetCards() {
         [firstCard, secondCard, lockBoard] = [null, null, false];
-        
+
     };
 
     // Restart the game
@@ -173,13 +171,13 @@ function checkForWin() {
     const allCards = document.querySelectorAll(".card");
     const flippedCards = document.querySelectorAll(".card.flipped");
 
-    // if all cards are flipped, the game is won
+    // If all cards are flipped, the game is won
     if (allCards.length === flippedCards.length) {
         showWinPopup();
     }
 }
 
-// popup appears with attempt count
+// Popup appears with attempt count
 function showWinPopup() {
     const winPopup = document.getElementById("winPopup");
     const attemptsPopup = document.getElementById("attemptsPopup");
@@ -190,6 +188,7 @@ function showWinPopup() {
     attemptsPopup.textContent = attempts;
     winPopup.style.display = "flex";
 
+    // Hide restartButton when popups visible
     const restartButton = document.getElementById("restartButton");
-    restartButton.style.display = "none"; // hide in game restart button when popup is visible
+    restartButton.style.display = "none";
 }
