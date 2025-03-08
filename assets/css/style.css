@@ -14,6 +14,7 @@ color: white;
 h1 {
 text-align: center;
 font-family: "Jost", sans-serif;
+font-size: 50px;
 font-optical-sizing: auto;
 font-weight: 600;
 font-style: normal;
@@ -160,10 +161,10 @@ backface-visibility: hidden;
     left: 50%;
     width: 300px;
 }
-/* Style for the header inside the popup */
+/* Style for the header inside the popup ("You Win!") */
 .popup-content h2 {
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
