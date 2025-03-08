@@ -1,5 +1,6 @@
 let lockBoard = false;
-let firstCards, secondCard;
+let firstCards;
+let secondCard;
 let attempts = 0;
 
 // Card images
@@ -29,10 +30,10 @@ const matchSound = new Audio("assets/audio/chime-winsound.mp3");
  const applauseSound = new Audio("assets/audio/applause-sound.mp3");
 
  // Get the sound toggle image element
- const soundToggleButton = document.getElementById('soundToggleButton');
+ const soundToggleButton = document.getElementById("soundToggleButton");
 
  // Add an event listener to the image
- soundToggleButton.addEventListener('click', toggleSound);
+ soundToggleButton.addEventListener("click", toggleSound);
  
  // Function to toggle the sound 
  function toggleSound() {
@@ -57,9 +58,9 @@ let cards = [...imageNames, ...imageNames];
 
 // Shuffle cards (Watched YouTube videos for help here)
 function shuffleCards() {
-    let currentIndex = cards.length,
-    randomIndex,
-    temporaryValue;
+    let currentIndex = cards.length;
+    let randomIndex;
+    let temporaryValue;
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -122,7 +123,7 @@ function shuffleCards() {
             unflipCards(); // Turn unmatched cards back over
         }
     }
-    
+
     // Disable the cards if they are a match
     function disableCards() {
         firstCard.removeEventListener("click", flipCard);
