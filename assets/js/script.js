@@ -93,7 +93,8 @@ function shuffleCards() {
     }
     // Flip function to turn the cards around (Watched YouTube videos for help here)
     function flipCard() {
-        if (lockBoard) return;
+        if (!lockBoard) {
+
         if (this === firstCard) return;
 
         this.classList.add("flipped");
@@ -106,23 +107,22 @@ function shuffleCards() {
         lockBoard = true;
 
         checkForMatch(); // Checks if the two cards match
-    }
+        }}
     
     // Function to check if two cards match
     function checkForMatch() {
         let isMatch = firstCard.dataset.name === secondCard.dataset.name;
-        if (!isMatch) {
-            attempts++; // only increase errors if cards don't match
-            document.querySelector("#attempts").textContent = attempts;
-        }
-        // Handle the card match or mismatch
-        isMatch ? disableCards() : unflipCards();
 
-        // Play match sound when the cards match
-        if (isMatch) {
-            matchSound.play(); 
+        if (isMatch === true) {
+            disableCards(); // Freeze the matched cards
+            matchSound.play(); // Play match sound when the cards match
+        } else {
+            attempts++; // only increase attempts if cards don't match
+            document.querySelector("#attempts").textContent = attempts;
+            unflipCards(); // Turn unmatched cards back over
         }
     }
+    
     // Disable the cards if they are a match
     function disableCards() {
         firstCard.removeEventListener("click", flipCard);
