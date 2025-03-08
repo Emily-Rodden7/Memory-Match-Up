@@ -149,6 +149,7 @@ backface-visibility: hidden;
     padding: 30px;
     border-radius: 10px;
     font-family: "Jost", sans-serif;
+    font-size: 20px;
     text-align: center;
     width: 80%;
     max-width: 300px;
@@ -159,22 +160,6 @@ backface-visibility: hidden;
     top: 50%;
     left: 50%;
     width: 300px;
-}
-
-/* Style for the header inside the popup */
-.popup-content h2 {
-    color: white;
-    font-size: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Style for the paragraph (attempt count) */
-.popup-content p {
-    font-size: 20px;
-    margin-bottom: 20px;
 }
 
 /* Style for the restart button on the popup menu */
