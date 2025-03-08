@@ -35,7 +35,7 @@ padding-top: 1%;
 /* Style of restart button */
 .restart-button {
 padding: 10px;
-font-size: 20;
+font-size: 20px;
 background-color: rgb(255, 69, 0);
 color: black;
 font-weight: bold;
@@ -123,15 +123,15 @@ background-repeat: no-repeat ;
 background-position: center;
 background-size: cover;
 backface-visibility: hidden;
-};
+}
 
 .card.flipped .front {
     transform: rotateY(0deg); /* Shows the front side */
-};
+}
 
 .card.flipped .back {
     transform: rotateY(180deg); /* Hides the back */
-};
+}
 
 /* You win popup style  */
 .win-popup {
@@ -179,7 +179,7 @@ backface-visibility: hidden;
 /* Style for the restart button on the popup menu */
 .popup-content button {
     padding: 10px;
-    font-size: 20;
+    font-size: 20px;
     background-color: #fdc500;
     color: black;
     font-weight: bold;
