@@ -35,7 +35,7 @@ padding-top: 1%;
 /* Style of restart button */
 .restart-button {
 padding: 10px;
-font-size: 20px;
+font-size: 20;
 background-color: rgb(255, 69, 0);
 color: black;
 font-weight: bold;
@@ -50,12 +50,7 @@ background-color: #675513;
 color: white;
 }
 
-/* hide the restart button when the popup is visible */
-.win-popup.show + #restartButton {
-    display: none;
-}
-
-/* Style fo the sound toggle button */
+/* Style for the sound toggle button */
 #soundToggleButton {
 cursor: pointer;
 width: 40px;
@@ -74,7 +69,7 @@ justify-items: center;
 gap: 10px;
 }
 
-/* Back of the card - before it's clicked */
+/* Back of the card transition */
 .card {
     height: 100px;
     width: 80px;
@@ -116,21 +111,13 @@ transform: rotateY(180deg);
 backface-visibility: hidden;  /* Prevents the picture side being visable */
 }
 
-/* Back of card is what you see first (before clicking) */
+/* Back of card style (before clicking) */
 .card .back {
 background-color: #fdc500;
 background-repeat: no-repeat ;
 background-position: center;
 background-size: cover;
 backface-visibility: hidden;
-}
-
-.card.flipped .front {
-    transform: rotateY(0deg); /* Shows the front side */
-}
-
-.card.flipped .back {
-    transform: rotateY(180deg); /* Hides the back */
 }
 
 /* You win popup style  */
@@ -154,7 +141,7 @@ backface-visibility: hidden;
     max-width: 300px;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -179,7 +166,7 @@ backface-visibility: hidden;
 /* Style for the restart button on the popup menu */
 .popup-content button {
     padding: 10px;
-    font-size: 20px;
+    font-size: 20;
     background-color: #fdc500;
     color: black;
     font-weight: bold;
